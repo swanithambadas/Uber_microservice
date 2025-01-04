@@ -1,0 +1,23 @@
+{
+    "apps": [
+      {
+        "name": "User Service",
+        "script": "user-service/userServer.js",
+        "watch": true,
+        "env": {
+          "JWT_SECRET": "your_local_secret_key"
+        }
+      },
+      {
+        "name": "Ride Service",
+        "script": "ride-service/rideServer.js",
+        "watch": true,
+        "env": {  
+          "USER_SERVICE_URL": "http://localhost:3000",
+          "PORT": 4000, 
+          "MONGO_URI": "mongodb://127.0.0.1:27017/Uber_ride"
+        }
+      }
+    ]
+  }
+  
