@@ -1,6 +1,6 @@
 const express = require('express');
 const Ride = require('../utils/dbRide');
-const { validateUser } = require('../utils/userValidation');
+const { validateUser } = require('../../common-utils/userValidation');
 const router = express.Router();
 
 router.post('/request-ride', async (req, res) => {
