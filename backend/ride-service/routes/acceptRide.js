@@ -1,6 +1,6 @@
 const express = require('express');
 const Ride = require('../utils/dbRide');
-const { validateUser } = require('../utils/userValidation');
+const { validateUser } = require('../../common-utils/userValidation');
 const router = express.Router();
 
 router.post('/accept-ride', async (req, res) => {
@@ -23,7 +23,7 @@ router.post('/accept-ride', async (req, res) => {
         if (ride.status !== 'requested') {
             return res.status(400).json({ error: `Ride cannot be accepted, current status: ${ride.status}` });
         }
-        
+
         const updatedRide = await Ride.findByIdAndUpdate(
             rideId,
             { driverId, status: 'accepted' },

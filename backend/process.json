@@ -17,6 +17,16 @@
           "PORT": 4000, 
           "MONGO_URI": "mongodb://127.0.0.1:27017/Uber_ride"
         }
+      }, 
+      {
+        "name": "Driver Location Service",
+        "script": "./driver-location-service/driverLocationServer.js",
+        "watch": true,
+        "env": {
+          "PORT": 5000,
+          "REDIS_URL": "redis://localhost:6379",
+          "USER_SERVICE_URL": "http://localhost:3000"
+        }
       }
     ]
   }
