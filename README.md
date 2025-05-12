@@ -1,8 +1,4 @@
-<p align="center">
-  <img src="assets/architecture.png" alt="Uber Microservices Architecture" width="80%"/>
-</p>
-
-<h1 align="center">🚗 UberMicroservice Platform</h1>
+<h1 align="center">🚗 UrbanNexus--Commute-Partner</h1>
 <p align="center"><strong>Scalable Node.js ride-sharing microservices | Docker & Kubernetes orchestration</strong></p>
 
 <p align="center">
