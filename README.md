@@ -3,13 +3,14 @@
 </p>
 
 <h1 align="center">🚗 UberMicroservice Platform</h1>
-<p align="center"><strong>Scalable Node.js ride-sharing microservices with Docker & Kubernetes orchestration</strong></p>
+<p align="center"><strong>Scalable Node.js ride-sharing microservices | Docker & Kubernetes orchestration</strong></p>
 
 <p align="center">
+  <a href="#overview">🔎 Overview</a> •  
   <a href="#services">⚙️ Services</a> •  
   <a href="#techniques">🔬 Techniques</a> •  
-  <a href="#technologies">🔧 Technologies</a> •  
-  <a href="#structure">📁 Structure</a> •  
+  <a href="#tech-stack">🛠️ Tech Stack</a> •  
+  <a href="#structure">📂 Structure</a> •  
   <a href="#contributors">👥 Contributors</a>
 </p>
 
@@ -24,51 +25,70 @@
 
 ---
 
+## 🔎 Overview
+
+UberMicroservice Platform is a modular ride-sharing backend built in Node.js.  
+Each concern lives in its own service, running in Docker containers and managed by Kubernetes for high availability and easy scaling.
+
+---
+
 ## ⚙️ Services
 
-- **auth-service**: JWT auth & authorization via [Express JWT](https://expressjs.com/en/resources/middleware.html#expressjwt).  
-- **user-service**: Rider & driver profile CRUD with RESTful APIs.  
-- **ride-service**: Trip matching, pricing engine, surge calculations.  
-- **notification-service**: Real-time alerts with [Socket.IO](https://socket.io/).  
+- **auth-service**  
+  JWT authentication & authorization ([express-jwt](https://expressjs.com/en/resources/middleware.html#expressjwt)).  
+- **user-service**  
+  Rider & driver profile CRUD via RESTful endpoints.  
+- **ride-service**  
+  Trip matching, dynamic pricing & surge logic.  
+- **notification-service**  
+  Real-time push notifications leveraging [Socket.IO](https://socket.io/).  
 
 ---
 
 ## 🔬 Techniques
 
-- **API Gateway Pattern**: Centralized routing with NGINX ([docs](https://nginx.org/en/docs/)).  
-- **Circuit Breaker**: Resiliency with [`opossum`](https://nodeshift.dev/opossum/).  
-- **Event-Driven Architecture**: Asynchronous messaging via [RabbitMQ](https://www.rabbitmq.com/).  
-- **Container Orchestration**: Docker Compose & Kubernetes ([helm.sh](https://helm.sh/)).  
-- **Zero-Downtime Deployments**: Rolling updates via Kubernetes Deployments ([docs](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)).  
+- **API Gateway Pattern**  
+  Central routing & load balancing with NGINX ([docs](https://nginx.org/en/docs/)).  
+- **Circuit Breaker**  
+  Service resilience via [opossum](https://nodeshift.dev/opossum/).  
+- **Event-Driven Architecture**  
+  Async messaging with [RabbitMQ](https://www.rabbitmq.com/).  
+- **Container Orchestration**  
+  Docker Compose for local stacks & Kubernetes for production ([helm.sh](https://helm.sh/)).  
+- **Zero-Downtime Deployments**  
+  Rolling updates configured in Kubernetes Deployments ([docs](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)).  
 
 ---
 
-## 🔧 Technologies
+## 🛠️ Tech Stack
 
-- **Node.js** – JavaScript runtime ([nodejs.org](https://nodejs.org/)).  
-- **Express.js** – Web framework ([expressjs.com](https://expressjs.com/)).  
-- **Docker** & **Docker Compose** – Containerization ([docker.com](https://docs.docker.com/)).  
-- **Kubernetes** – Orchestration ([kubernetes.io](https://kubernetes.io/docs/home/)).  
-- **RabbitMQ** – Message broker ([rabbitmq.com](https://www.rabbitmq.com/documentation.html)).  
-- **Redis** – In-memory cache & pub/sub ([redis.io](https://redis.io/documentation)).  
-- **MongoDB** – NoSQL datastore ([mongodb.com](https://docs.mongodb.com/)).  
-- **Swagger UI** – API docs ([swagger.io](https://swagger.io/docs/)).  
+<p align="center">
+  <img src="https://img.shields.io/badge/JavaScript-ES6%2B-yellow?logo=javascript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Node.js-14%2B-green?logo=node.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Express-4.x-lightgrey?logo=express&logoColor=black"/>
+  <img src="https://img.shields.io/badge/Docker-20.x-blue?logo=docker&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Kubernetes-1.22-blue?logo=kubernetes&logoColor=white"/>
+  <img src="https://img.shields.io/badge/RabbitMQ-3.9-red?logo=rabbitmq&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Redis-6.x-yellow?logo=redis&logoColor=white"/>
+  <img src="https://img.shields.io/badge/MongoDB-4.4-green?logo=mongodb&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Swagger-UI-blue?logo=swagger&logoColor=white"/>
+</p>
 
 ---
 
-## 📁 Structure
+## 📂 Structure
 
 ```bash
 .
-├── backend/                # Node.js microservices
+├── backend/                  # All Node.js services
 │   ├── auth-service/
 │   ├── user-service/
 │   ├── ride-service/
 │   └── notification-service/
-├── frontend/               # React client or dashboard
+├── frontend/                 # Optional client app (React/Vue)
 │   ├── public/
 │   └── src/
-├── docker/                 # Dockerfiles & compose configs
+├── docker/                   # Dockerfiles & Compose configs
 │   ├── auth-service.Dockerfile
 │   └── docker-compose.yml
-└── .vscode/                # IDE settings
+└── .vscode/                  # IDE settings
